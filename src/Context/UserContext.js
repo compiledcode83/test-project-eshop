@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, createContext } from "react";
+import React, { useReducer, createContext } from "react";
 
 const initialState = {
   isLoggedIn: false,
@@ -34,11 +34,11 @@ const UserReducer = (state, action) => {
 };
 
 export const UserContextProvider = (props) => {
-  const [appState, dispatch] = useReducer(UserReducer, initialState);
+  const [userState, dispatch] = useReducer(UserReducer, initialState);
 
   return (
-    <useContext.Provider value={[appState, dispatch]}>
+    <UserContext.Provider value={[userState, dispatch]}>
       {props.children}
-    </useContext.Provider>
+    </UserContext.Provider>
   );
 };
