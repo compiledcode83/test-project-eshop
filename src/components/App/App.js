@@ -4,8 +4,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { UserContextProvider } from "../../Context/UserContext";
 import Home from "../../pages/Home/Home";
-import Login from "../../pages/Login/Login";
-import Register from "../../pages/Register/Register";
+import Login from "../../components/Login/Login";
+import Register from "../../components/Register/Register";
+import Footer from "../../components/Footer/Footer";
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
+          {/* <Route exact path="/register" component={Register} /> */}
           <Route exact path="/cart" component={null} />
           <Route exact path="/help" component={null} />
 
@@ -24,6 +25,7 @@ export default function App() {
           <Route exact path="/account/:userId/overview" component={null} />
           <Route exact path="/account/:userId/edit" component={null} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </UserContextProvider>
   );

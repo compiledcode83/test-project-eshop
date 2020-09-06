@@ -28,6 +28,12 @@ const UserReducer = (state, action) => {
         userData: action.payload,
       };
 
+    case "Login":
+      return {
+        ...state,
+        isLoggedIn: action.payload,
+      };
+
     default:
       break;
   }
