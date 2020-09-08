@@ -19,3 +19,9 @@ body {
   color: #3f51b5;
   font-size: larger;
 }
+
+.GreetingTxt {
+  color: #b488f9;
+  font-size: xx-large;
+  font-family: sans-serif;
+}

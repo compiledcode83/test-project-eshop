@@ -47,7 +47,7 @@ export default function Navbar() {
 
       {localStorage.getItem("isLoggedIn") === "true" ? (
         <>
-          <span className="NavbarLink">
+          <span className="GreetingTxt">
             Welcome {localStorage.getItem("userName")}
           </span>
           <div className={classes.root}>
