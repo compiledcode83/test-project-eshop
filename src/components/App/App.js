@@ -1,29 +1,75 @@
 import React from "react";
-import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { UserContextProvider } from "../../Context/UserContext";
+// components loading
+import Navbar from "../Navbar/Navbar";
+import Login from "../Login/Login";
+import Register from "../Register/Register";
+import Footer from "../Footer/Footer";
+
+// pages loading
 import Home from "../../pages/Home/Home";
-import Login from "../../components/Login/Login";
-import Register from "../../components/Register/Register";
-import Footer from "../../components/Footer/Footer";
 
 export default function App() {
+  console.log(localStorage.getItem("isLoggedIn"));
   return (
     <UserContextProvider>
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          {/* <Route exact path="/register" component={Register} /> */}
-          <Route exact path="/cart" component={null} />
-          <Route exact path="/help" component={null} />
+          <Route exact path="/register" component={Register} />
 
-          <Route exact path="/categories/:catId" component={null} />
-          <Route exact path="/item/:itemId" component={null} />
-          <Route exact path="/account/:userId/overview" component={null} />
-          <Route exact path="/account/:userId/edit" component={null} />
+          <Route exact path="/login">
+            {localStorage.getItem("isLoggedIn") === "false" ? (
+              <Login />
+            ) : (
+              <Redirect to="/" />
+            )}
+          </Route>
+
+          <Route exact path="/">
+            {localStorage.getItem("isLoggedIn") === "true" ? (
+              <Home />
+            ) : (
+              <Redirect to="/login" />
+            )}
+          </Route>
+
+          <Route exact path="/cart">
+            {localStorage.getItem("isLoggedIn") === "true" ? null : (
+              <Redirect to="/login" />
+            )}
+          </Route>
+
+          <Route exact path="/help">
+            {localStorage.getItem("isLoggedIn") === "true" ? null : (
+              <Redirect to="/login" />
+            )}
+          </Route>
+
+          <Route exact path="/categories/:catId">
+            {localStorage.getItem("isLoggedIn") === "true" ? null : (
+              <Redirect to="/login" />
+            )}
+          </Route>
+
+          <Route exact path="/item/:itemId">
+            {localStorage.getItem("isLoggedIn") === "true" ? null : (
+              <Redirect to="/login" />
+            )}
+          </Route>
+
+          <Route exact path="/account/:userId/overview">
+            {localStorage.getItem("isLoggedIn") === "true" ? null : (
+              <Redirect to="/login" />
+            )}
+          </Route>
+
+          <Route exact path="/account/:userId/edit">
+            {localStorage.getItem("isLoggedIn") === "true" ? null : (
+              <Redirect to="/login" />
+            )}
+          </Route>
         </Switch>
         <Footer />
       </BrowserRouter>

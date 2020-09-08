@@ -1,13 +1,10 @@
 import React from "react";
 import { Paper, TextField, makeStyles, Button } from "@material-ui/core";
 import { useState } from "react";
-import { useContext } from "react";
-import { UserContext } from "../../Context/UserContext";
 import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
 
 // styling material-ui elements
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -23,14 +20,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const classes = useStyles();
   const history = useHistory();
-  const [data, setData] = useState({ email: "", password: "" });
-  const [userState, dispatch] = useContext(UserContext);
-
-  useEffect(() => {
-    if (userState.isLoggedIn) {
-      history.push("/");
-    }
-  });
+  const [data, setData] = useState({ Email: "", Password: "" });
 
   function HandleChange(e) {
     data[e.target.getAttribute("id")] = e.target.value;
@@ -39,11 +29,17 @@ export default function Login() {
 
   function HandleSubmit(e) {
     e.preventDefault();
-    dispatch({
-      type: "Login",
-      payload: true,
-    });
-    history.push("/");
+    if (
+      localStorage.getItem("Email") === data.Email &&
+      localStorage.getItem("Password") === data.Password
+    ) {
+      localStorage.setItem("isLoggedIn", "true");
+      alert("success!");
+      window.location.reload(true);
+      history.push("/");
+    } else {
+      alert("invalid email or password");
+    }
   }
 
   return (
@@ -54,7 +50,7 @@ export default function Login() {
           label="Email"
           required
           type="email"
-          id="email"
+          id="Email"
           variant="filled"
           onChange={HandleChange}
         />
@@ -63,7 +59,7 @@ export default function Login() {
           label="Password"
           required
           type="password"
-          id="password"
+          id="Password"
           variant="filled"
           onChange={HandleChange}
         />

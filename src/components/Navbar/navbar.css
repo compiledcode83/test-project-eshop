@@ -1,8 +1,18 @@
+body {
+  overflow: auto;
+}
+
 .NavbarCustomized {
   display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  float: none;
   flex-direction: row;
-  background-color: rgba(0, 0, 0, 0.829);
+  background-color: #131921;
   align-items: center;
+  width: max-content;
+  min-width: 100%;
 }
 
 .NavbarLink {
