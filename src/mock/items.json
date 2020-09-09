@@ -8,5 +8,33 @@
     "WomenWear",
     "BabyWear",
     "KitchenUtilities"
+  ],
+  "Food": [
+    {
+      "Name": "Tuna",
+      "Brand": "SunShine",
+      "Rating": "3",
+      "Price": "100.24"
+    },
+    {
+      "Name": "Rice",
+      "Brand": "Aldoha",
+      "Rating": "4",
+      "Price": "24"
+    }
+  ],
+  "Labtops": [
+    {
+      "Name": "Inspiron 15-3593",
+      "Brand": "DELL",
+      "Rating": "5",
+      "Price": "14,965"
+    },
+    {
+      "Name": "15-da1885ne",
+      "Brand": "HP",
+      "Rating": "3",
+      "Price": "10,233"
+    }
   ]
 }

@@ -43,8 +43,7 @@ form {
 
 .FooterCustomized {
   display: flex;
-  position: absolute;
-  top: 100%;
+  position: static;
   left: 0;
   right: 0;
   bottom: 0;
