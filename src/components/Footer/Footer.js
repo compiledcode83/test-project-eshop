@@ -54,32 +54,36 @@ export default function Footer() {
           <h5>Let us help you</h5>
           <ul>
             <li>
-              <a className="ListLink" href="/help#HowToBuy">
+              <a className="ListLink" href="/help#How to buy?">
                 How to buy products
               </a>
             </li>
             <li>
-              <a className="ListLink" href="/help#HowToSell">
+              <a className="ListLink" href="/help#How to sell you products?">
                 How to sell your products
               </a>
             </li>
             <li>
-              <a className="ListLink" href="/help#SupportedPaymentMethods">
+              <a className="ListLink" href="/help#Payment methods?">
                 Supported payment methods
               </a>
             </li>
             <li>
-              <a className="ListLink" href="/help#ProblemsWithOrdering">
+              <a
+                className="ListLink"
+                href="/help#Have a problems with ordering items?">
                 Have a problems with ordering items?
               </a>
             </li>
           </ul>
         </div>
         <div className="col-6">
-          <h5>About us</h5>
+          <h5>
+            <a href="/about">About us</a>
+          </h5>
           <ul>
             <li>
-              <a className="ListLink" href="/about#OurVision">
+              <a className="ListLink" href="/about#Our Vision">
                 Our vision
               </a>
             </li>
@@ -89,12 +93,12 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a className="ListLink" href="/about#OurBegining">
+              <a className="ListLink" href="/about#Our Begining">
                 Our begining
               </a>
             </li>
             <li>
-              <a className="ListLink" href="/about#DetailedInfo">
+              <a className="ListLink" href="/about#Detailed Info">
                 Detailed Information about us
               </a>
             </li>
@@ -107,22 +111,22 @@ export default function Footer() {
       <h5>Follow us</h5>
       <div className="row SocialMedia">
         <div className="SocialMediaDiv">
-          <a href="https://www.facebook.com/">
+          <a href="https://www.facebook.com/" target="blank">
             <img src={facebook} alt="facebook" className="SocialMediaImg" />
           </a>
         </div>
         <div className="SocialMediaDiv">
-          <a href="https://www.youtube.com/">
+          <a href="https://www.youtube.com/" target="blank">
             <img src={youtube} alt="youtube" className="SocialMediaImg" />
           </a>
         </div>
         <div className="SocialMediaDiv">
-          <a href="https://www.twitter.com/">
+          <a href="https://www.twitter.com/" target="blank">
             <img src={twitter} alt="twitter" className="SocialMediaImg" />
           </a>
         </div>
         <div className="SocialMediaDiv">
-          <a href="https://www.instagram.com/">
+          <a href="https://www.instagram.com/" target="blank">
             <img src={instagram} alt="instagram" className="SocialMediaImg" />
           </a>
         </div>
