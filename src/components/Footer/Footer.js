@@ -78,9 +78,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="col-6">
-          <h5>
-            <a href="/about">About us</a>
-          </h5>
+          <h5>About us</h5>
           <ul>
             <li>
               <a className="ListLink" href="/about#Our Vision">

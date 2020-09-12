@@ -2,7 +2,6 @@ import React from "react";
 import { Paper, TextField, makeStyles, Button } from "@material-ui/core";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
 
 // styling material-ui elements
 const useStyles = makeStyles((theme) => ({
@@ -36,13 +35,14 @@ export default function Register() {
 
   function HandleSubmit(e) {
     e.preventDefault();
-    console.log(data);
     localStorage.setItem("isLoggedIn", true);
     localStorage.setItem("userName", data.userName);
     localStorage.setItem("Password", data.Password);
     localStorage.setItem("Phone", data.Phone);
     localStorage.setItem("Address", data.Address);
     localStorage.setItem("Email", data.Email);
+    localStorage.setItem("numberOfOrders", 0);
+    localStorage.setItem("cartItems", []);
     history.push("/login");
   }
 

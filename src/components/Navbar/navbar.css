@@ -11,8 +11,8 @@ body {
   flex-direction: row;
   background-color: #131921;
   align-items: center;
-  width: max-content;
-  min-width: 100%;
+  width: 100%;
+  min-width: 1260px;
 }
 
 .NavbarLink {
@@ -22,6 +22,8 @@ body {
 
 .GreetingTxt {
   color: #b488f9;
-  font-size: xx-large;
+  font-size: larger;
+  font-weight: bold;
   font-family: sans-serif;
+  margin-left: 10px;
 }
