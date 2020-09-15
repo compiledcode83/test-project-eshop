@@ -37,9 +37,7 @@ export default function Navbar() {
 
       {localStorage.getItem("isLoggedIn") === "true" ? (
         <>
-          <span className="GreetingTxt">
-            Hello, {localStorage.getItem("userName")}
-          </span>
+          <span className="GreetingTxt">Hello, {localStorage.getItem("userName")}</span>
           <div className={classes.root}>
             <ButtonGroup color="primary">
               <Button onClick={HandleLogout}>
@@ -73,9 +71,7 @@ export default function Navbar() {
           <ButtonGroup color="primary">
             <Button>
               Cart
-              <Badge
-                badgeContent={localStorage.getItem("numberOfOrders")}
-                color="primary">
+              <Badge badgeContent={localStorage.getItem("numberOfOrders")} color="primary">
                 <ShoppingCart />
               </Badge>
             </Button>
@@ -90,7 +86,8 @@ export default function Navbar() {
             className="btn btn-outline-primary dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
-            aria-expanded="false">
+            aria-expanded="false"
+          >
             Account Management
           </button>
           <div className="dropdown-menu">

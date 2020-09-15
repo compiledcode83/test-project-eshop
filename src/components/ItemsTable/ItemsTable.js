@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -17,46 +17,51 @@ const useStyles = makeStyles({
 
 export default function ItemsTable(props) {
   const classes = useStyles();
-  const [total, setTotal] = useState(0);
+  // eslint-disable-next-line
+  const [subTotal, setSubTotal] = useState(0);
+
+  useEffect(() => {
+    let sum = 0;
+    props.rows.map((row) => (sum += row["Price"]));
+    setSubTotal(sum);
+  }, [subTotal, setSubTotal, props.rows]);
 
   return (
-    <div className="container">
-      <TableContainer component={Paper}>
-        <Table className={classes.table}>
-          <TableHead>
-            <TableRow>
-              {props.headers.map((txt, idx) => (
-                <TableCell key={idx}>{txt}</TableCell>
+    <TableContainer component={Paper}>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableRow>
+            {props.headers.map((txt, idx) => (
+              <TableCell key={idx}>{txt}</TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+
+        <TableBody>
+          {props.rows.map((row, idx) => (
+            <TableRow key={idx}>
+              {Object.keys(row).map((tt, idx2) => (
+                <TableCell key={idx2}>{row[tt]}</TableCell>
               ))}
             </TableRow>
-          </TableHead>
+          ))}
 
-          <TableBody>
-            {props.rows.map((row, idx) => (
-              <TableRow key={idx}>
-                {props.headers.map((txt, idx2) => (
-                  <TableCell key={idx2}>{row.txt}</TableCell>
-                ))}
-              </TableRow>
-            ))}
+          <TableRow>
+            <TableCell>Subtotal</TableCell>
+            <TableCell>{subTotal.toFixed(2)}</TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>Subtotal</TableCell>
-              <TableCell>{10}</TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>Tax</TableCell>
+            <TableCell>{(100 * props.Tax).toFixed(0)}%</TableCell>
+          </TableRow>
 
-            <TableRow>
-              <TableCell>Tax</TableCell>
-              <TableCell>{props.Tax * 100}</TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>Total</TableCell>
-              <TableCell>{10}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </div>
+          <TableRow>
+            <TableCell>Total</TableCell>
+            <TableCell>{(subTotal * props.Tax + subTotal).toFixed(2)}</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
