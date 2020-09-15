@@ -38,11 +38,7 @@ export default function Footer() {
               onChange={HandleChange}
             />
 
-            <input
-              type="submit"
-              value="Subscribe"
-              className="btn btn-secondary"
-            />
+            <input type="submit" value="Subscribe" className="btn btn-secondary" />
           </form>
         </div>
       </div>
@@ -69,9 +65,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a
-                className="ListLink"
-                href="/help#Have a problems with ordering items?">
+              <a className="ListLink" href="/help#Have a problems with ordering items?">
                 Have a problems with ordering items?
               </a>
             </li>
