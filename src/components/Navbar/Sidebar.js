@@ -44,7 +44,10 @@ export default function Sidebar(props) {
       <List>
         {props.categories.map((text, index) => (
           <ListItem button key={index}>
-            <Link to={`/categories/${text}`}>{text}</Link>
+            <Link
+              to={`/categories/${text}?sortBy=newest&filterBy=null&value=null`}>
+              {text}
+            </Link>
           </ListItem>
         ))}
       </List>

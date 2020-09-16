@@ -12,7 +12,9 @@ export default function Cart() {
 
   return (
     <div className="container">
-      <span className="navbar-brand">Cart ({JSON.parse(localStorage.getItem("cartItems")).length}) items</span>
+      <span className="navbar-brand">
+        Cart ({JSON.parse(localStorage.getItem("cartItems")).length}) items
+      </span>
       <br />
       <ItemsTable
         headers={["Name", "Price", "Seller"]}
@@ -21,18 +23,25 @@ export default function Cart() {
       />
       <br />
       <div className="row d-flex justify-content-around">
-        <button type="button" className="btn btn-success col-3" onClick={HandlePayment}>
+        <button
+          type="button"
+          className="btn btn-success col-3"
+          onClick={HandlePayment}>
           Pay
         </button>
 
-        <button type="button" className="btn btn-danger col-3" onClick={HandleClear}>
+        <button
+          type="button"
+          className="btn btn-danger col-3"
+          onClick={HandleClear}>
           Clear Cart
         </button>
       </div>
       <br />
-      <div class="row">
+      <div className="row">
         <p>
-          Note: If you want to remove any item from your cart, you can go to the item's page and click remove from cart
+          Note: If you want to remove any item from your cart, you can go to the
+          item's page and click remove from cart
         </p>
       </div>
     </div>

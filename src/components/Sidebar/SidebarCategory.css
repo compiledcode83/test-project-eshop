@@ -1,0 +1,19 @@
+.SidebarHeading {
+  color: #7634b3;
+}
+
+.SidebarListItem {
+  color: black;
+  list-style: none;
+}
+
+.SidebarListItem:hover {
+  color: grey;
+}
+
+.SidebarList {
+  padding-left: 10px;
+  cursor: pointer;
+  font-size: large;
+  color: black;
+}

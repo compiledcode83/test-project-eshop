@@ -13,16 +13,6 @@ h6 {
   font-size: larger;
 }
 
-.ListLink {
-  color: white;
-  padding: 0;
-}
-
-.ListLink:hover {
-  color: rgb(165, 150, 150);
-  text-decoration: none;
-}
-
 ul {
   padding-left: inherit;
   width: fit-content;
@@ -35,6 +25,19 @@ hr {
 
 form {
   margin-top: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.ListLink {
+  color: white;
+  padding: 0;
+}
+
+.ListLink:hover {
+  color: rgb(165, 150, 150);
 }
 
 .inputCustom {
