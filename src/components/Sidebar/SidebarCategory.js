@@ -93,23 +93,6 @@ export default function SidebarCategory(props) {
                 <Star />
               </a>
             </li>
-
-            <li className="SidebarListItem">
-              <a
-                href={`?sortBy=price&filterBy=${params.get(
-                  "filterBy"
-                )}&value=${params.get("value")}`}>
-                sort by price
-              </a>
-            </li>
-            <li className="SidebarListItem">
-              <a
-                href={`?sortBy=newest&filterBy=${params.get(
-                  "filterBy"
-                )}&value=${params.get("value")}`}>
-                sort by newest
-              </a>
-            </li>
           </ul>
         </div>
 

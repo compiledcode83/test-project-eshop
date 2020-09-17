@@ -44,5 +44,11 @@
       "Price": "10,233",
       "Category": "Labtops"
     }
-  ]
+  ],
+  "Electronics": [],
+  "Mobile": [],
+  "MenWear": [],
+  "WomenWear": [],
+  "BabyWear": [],
+  "KitchenUtilities": []
 }
