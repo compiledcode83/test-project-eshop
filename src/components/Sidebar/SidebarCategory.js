@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SidebarCategory.css";
 import { Divider, Paper, Button, Input, Slider } from "@material-ui/core";
 import { Star } from "@material-ui/icons";
@@ -20,11 +20,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SidebarCategory(props) {
   const classes = useStyles();
-  const [priceRange, setPriceRange] = useState([
-    props.initialRange[0],
-    props.initialRange[1],
-  ]);
+  const [priceRange, setPriceRange] = useState([0, 0]);
   const params = new URLSearchParams(window.location.search);
+
+  useEffect(() => {
+    setPriceRange(props.initialRange);
+  }, [props.initialRange]);
 
   return (
     <>
@@ -117,8 +118,8 @@ export default function SidebarCategory(props) {
               onChange={(event, newValue) => {
                 setPriceRange(newValue);
               }}
-              min={props.initialRange[0]}
-              max={props.initialRange[1]}
+              min={priceRange[0]}
+              max={priceRange[1]}
             />
             <div className="d-flex justify-content-center">
               <Input

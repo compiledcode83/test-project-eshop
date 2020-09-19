@@ -74,7 +74,9 @@ export default function Navbar() {
             <Button>
               Cart
               <Badge
-                badgeContent={localStorage.getItem("numberOfOrders")}
+                badgeContent={
+                  JSON.parse(localStorage.getItem("cartItems")).length
+                }
                 color="primary">
                 <ShoppingCart />
               </Badge>

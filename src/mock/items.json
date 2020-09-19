@@ -3,7 +3,7 @@
     "Food",
     "Electronics",
     "Mobile&Accessoris",
-    "Laptops",
+    "Labtops",
     "MenWear",
     "WomenWear",
     "BabyWear",
@@ -33,7 +33,7 @@
       "Name": "Inspiron 15-3593",
       "Brand": "DELL",
       "Rating": "5",
-      "Price": "14,965",
+      "Price": "14965",
       "Category": "Labtops"
     },
     {
@@ -41,7 +41,7 @@
       "Name": "15-da1885ne",
       "Brand": "HP",
       "Rating": "3",
-      "Price": "10,233",
+      "Price": "10233",
       "Category": "Labtops"
     }
   ],

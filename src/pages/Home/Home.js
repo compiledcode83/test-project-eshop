@@ -11,7 +11,12 @@ export default function Home() {
   return (
     <div className="container">
       <Slider
-        Imgs={[imgs.Food[0], imgs.Food[1], imgs.Labtops[0], imgs.Labtops[1]]}
+        Imgs={[
+          imgs.Food.Tuna,
+          imgs.Food.Rice,
+          imgs.Labtops["Inspiron 15-3593"],
+          imgs.Labtops["15-da1885ne"],
+        ]}
       />
       <hr />
       <MultipleCards
@@ -21,7 +26,12 @@ export default function Home() {
           items.Labtops[0],
           items.Labtops[1],
         ]}
-        Imgs={[imgs.Food[0], imgs.Food[1], imgs.Labtops[0], imgs.Labtops[1]]}
+        Imgs={[
+          imgs.Food.Tuna,
+          imgs.Food.Rice,
+          imgs.Labtops["Inspiron 15-3593"],
+          imgs.Labtops["15-da1885ne"],
+        ]}
         Txt="Recommended for you"
       />
     </div>

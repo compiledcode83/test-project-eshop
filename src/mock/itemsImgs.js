@@ -7,8 +7,14 @@ import FoodTuna from "../assets/images/Items/Food/tuna/main.jpg";
 import FoodRice from "../assets/images/Items/Food/rice/main.jpg";
 
 let imgs = {
-  Labtops: [LabtopsDELL, LabtopsHP],
-  Food: [FoodTuna, FoodRice],
+  Labtops: { "Inspiron 15-3593": LabtopsDELL, "15-da1885ne": LabtopsHP },
+  Food: { Tuna: FoodTuna, Rice: FoodRice },
+  Electronics: {},
+  Mobile: {},
+  MenWear: {},
+  WomenWear: {},
+  BabyWear: {},
+  KitchenUtilities: {},
 };
 
 export default imgs;

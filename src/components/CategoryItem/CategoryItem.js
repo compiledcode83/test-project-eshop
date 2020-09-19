@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Rating } from "@material-ui/lab";
+
 export default function CategoryItem(props) {
-  const [buttonState, setButtonState] = useState(false);
+  const [buttonState, setButtonState] = useState(props.isAdded);
 
   function HandleAddToCart() {
     let items = JSON.parse(localStorage.getItem("cartItems"));
     items.push({ Name: props.Name, Price: props.Price, Seller: props.Seller });
     localStorage.setItem("cartItems", JSON.stringify(items));
     setButtonState(!buttonState);
+    window.location.reload();
   }
 
   function HandleRemoveFromCart() {
@@ -19,9 +21,10 @@ export default function CategoryItem(props) {
       if (item.Name === props.Name) index = idx;
     });
 
-    items = items.splice(index, 1);
+    items.splice(index, 1);
     localStorage.setItem("cartItems", JSON.stringify(items));
     setButtonState(!buttonState);
+    window.location.reload();
   }
 
   return (

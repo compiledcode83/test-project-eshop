@@ -22,7 +22,7 @@ export default function ItemsTable(props) {
 
   useEffect(() => {
     let sum = 0;
-    props.rows.map((row) => (sum += row["Price"]));
+    props.rows.map((row) => (sum += +row["Price"]));
     setSubTotal(sum);
   }, [subTotal, setSubTotal, props.rows]);
 
@@ -58,7 +58,9 @@ export default function ItemsTable(props) {
 
           <TableRow>
             <TableCell>Total</TableCell>
-            <TableCell>{(subTotal * props.Tax + subTotal).toFixed(2)}</TableCell>
+            <TableCell>
+              {(subTotal * props.Tax + subTotal).toFixed(2)}
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>

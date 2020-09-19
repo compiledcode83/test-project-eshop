@@ -1,13 +1,19 @@
 import React from "react";
 import ItemsTable from "../../components/ItemsTable/ItemsTable";
+import { useHistory } from "react-router-dom";
 
 export default function Cart() {
-  function HandleClear(e) {
+  const history = useHistory();
+
+  function HandleClear() {
     localStorage.setItem("cartItems", JSON.stringify([]));
+    history.push("/");
   }
 
-  function HandlePayment(e) {
-    // ...
+  function HandlePayment() {
+    // add the modal...
+    localStorage.setItem("cartItems", JSON.stringify([]));
+    history.push("/");
   }
 
   return (
@@ -47,3 +53,40 @@ export default function Cart() {
     </div>
   );
 }
+/* modal configured
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import { Button } from "@material-ui/core";
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3)
+  }
+}));
+
+export default function TransitionsModal() {
+  const classes = useStyles();
+
+  return (
+    <div>
+      <Modal className={classes.modal} open={1}>
+        <div className={classes.paper}>
+          <h2>Transition modal</h2>
+          <Button variant="contained" color="primary">
+            Ok
+          </Button>
+        </div>
+      </Modal>
+    </div>
+  );
+}
+
+*/
