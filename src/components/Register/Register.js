@@ -42,7 +42,7 @@ export default function Register() {
     localStorage.setItem("Address", data.Address);
     localStorage.setItem("Email", data.Email);
     localStorage.setItem("numberOfOrders", 0);
-    localStorage.setItem("cartItems", []);
+    localStorage.setItem("cartItems", JSON.stringify([]));
     history.push("/login");
   }
 
