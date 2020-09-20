@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import DehazeIcon from "@material-ui/icons/Dehaze";
 import { Drawer, Button, List, ListItem } from "@material-ui/core";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   list: {

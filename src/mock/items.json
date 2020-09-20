@@ -16,7 +16,29 @@
       "Brand": "SunShine",
       "Rating": "3",
       "Price": "100.24",
-      "Category": "Food"
+      "Category": "Food",
+      "Reviews": [
+        {
+          "Reviewer": "Mohammed",
+          "Review": "I think it was not very good for me as there many brands offers more quality"
+        },
+        {
+          "Reviewer": "Mohammed Ahmed",
+          "Review": "very good quality"
+        },
+        {
+          "Reviewer": "Mido Abdo",
+          "Review": "so poor quality. it was a terrible item i bought"
+        },
+        {
+          "Reviewer": "Hisham404",
+          "Review": "very good for me as there many brands offers more quality"
+        },
+        {
+          "Reviewer": "Youssef",
+          "Review": "It is very special. I would recommend it for my friends too."
+        }
+      ]
     },
     {
       "ItemId": "1",
@@ -24,7 +46,17 @@
       "Brand": "Aldoha",
       "Rating": "4",
       "Price": "24",
-      "Category": "Food"
+      "Category": "Food",
+      "Reviews": [
+        {
+          "Reviewer": "Khaled",
+          "Review": "not so bad. but i think it needs more review from the providers on the quality"
+        },
+        {
+          "Reviewer": "Sarah",
+          "Review": "It is very special but not for me XD XD"
+        }
+      ]
     }
   ],
   "Labtops": [
@@ -34,7 +66,17 @@
       "Brand": "DELL",
       "Rating": "5",
       "Price": "14965",
-      "Category": "Labtops"
+      "Category": "Labtops",
+      "Reviews": [
+        {
+          "Reviewer": "Omran",
+          "Review": "Its CPU sound is the only problem. but overall i would recommend it"
+        },
+        {
+          "Reviewer": "Yousra",
+          "Review": "In my experience, it was very good"
+        }
+      ]
     },
     {
       "ItemId": "1",
@@ -42,7 +84,17 @@
       "Brand": "HP",
       "Rating": "3",
       "Price": "10233",
-      "Category": "Labtops"
+      "Category": "Labtops",
+      "Reviews": [
+        {
+          "Reviewer": "Omran",
+          "Review": "Its CPU sound is the only problem. but overall i would recommend it"
+        },
+        {
+          "Reviewer": "Yousra",
+          "Review": "In my experience, it was very good"
+        }
+      ]
     }
   ],
   "Electronics": [],

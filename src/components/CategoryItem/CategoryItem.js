@@ -31,7 +31,7 @@ export default function CategoryItem(props) {
     <div className="row CategoryHeadingRow">
       <div className="col-3 p-0">
         <Link to={props.path}>
-          <img src={props.img} alt="" className="" width={200} height={200} />
+          <img src={props.img} alt="" width={200} height={200} />
         </Link>
       </div>
       <div className="col-9 d-flex align-items-center">

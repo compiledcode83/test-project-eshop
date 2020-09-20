@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { Paper, Divider } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-export default function Category(props) {
+export default function Category() {
   const [SortByState, setSortByState] = useState(true);
 
   const [MinMax, setMinMax] = useState([10000, 0]);

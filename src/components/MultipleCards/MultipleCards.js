@@ -24,6 +24,7 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     padding: "15px",
+    borderRadius: "10px",
   },
 });
 
@@ -33,7 +34,7 @@ export default function MultipleCards(props) {
   return (
     <>
       <h4>{props.Txt}</h4>
-      <Paper elevation={5} square className={classes.root}>
+      <Paper elevation={10} className={classes.root}>
         {props.Imgs.map((info, idx) => (
           <Card className={classes.card} key={idx}>
             <CardActionArea>

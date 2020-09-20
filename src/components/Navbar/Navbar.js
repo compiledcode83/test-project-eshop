@@ -75,7 +75,9 @@ export default function Navbar() {
               Cart
               <Badge
                 badgeContent={
-                  JSON.parse(localStorage.getItem("cartItems")).length
+                  localStorage.getItem("isLoggedIn") === "true"
+                    ? JSON.parse(localStorage.getItem("cartItems")).length
+                    : 0
                 }
                 color="primary">
                 <ShoppingCart />

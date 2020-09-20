@@ -15,6 +15,7 @@ import Cart from "../../pages/Cart/Cart";
 import AccountOverview from "../../pages/Account/AccountOverview";
 import AccountEdit from "../../pages/Account/AccountEdit";
 import Category from "../../pages/Category/Category";
+import Item from "../../pages/Item/Item";
 
 export default function App() {
   return (
@@ -72,7 +73,9 @@ export default function App() {
         </Route>
 
         <Route exact path="/categories/:catName/item/:itemId">
-          {localStorage.getItem("isLoggedIn") === "true" ? null : (
+          {localStorage.getItem("isLoggedIn") === "true" ? (
+            <Item />
+          ) : (
             <Redirect to="/login" />
           )}
         </Route>

@@ -8,6 +8,7 @@ export default function Cart() {
   function HandleClear() {
     localStorage.setItem("cartItems", JSON.stringify([]));
     history.push("/");
+    window.location.reload();
   }
 
   function HandlePayment() {
