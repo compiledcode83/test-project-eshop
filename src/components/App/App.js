@@ -16,8 +16,15 @@ import AccountOverview from "../../pages/Account/AccountOverview";
 import AccountEdit from "../../pages/Account/AccountEdit";
 import Category from "../../pages/Category/Category";
 import Item from "../../pages/Item/Item";
+import { useEffect } from "react";
 
 export default function App() {
+  useEffect(() => {
+    if (!localStorage.getItem("isLoggedIn")) {
+      localStorage.setItem("isLoggedIn", false);
+    }
+  });
+
   return (
     <BrowserRouter>
       <Navbar />
