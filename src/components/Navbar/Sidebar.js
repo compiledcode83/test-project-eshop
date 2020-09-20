@@ -43,11 +43,11 @@ export default function Sidebar(props) {
       onClick={toggleDrawer(anchor, false)}>
       <List>
         {props.categories.map((text, index) => (
-          <Link
-            to={`/categories/${text}?sortBy=newest&filterBy=null&value=null`}
+          <a
+            href={`/categories/${text}?sortBy=newest&filterBy=null&value=null`}
             key={index}>
             <ListItem button>{text}</ListItem>
-          </Link>
+          </a>
         ))}
       </List>
     </div>

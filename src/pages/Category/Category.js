@@ -51,16 +51,14 @@ export default function Category(props) {
       setSortByState(false);
     } else setSortByState(true);
 
-    let val = [10000, 0];
-    JSON.parse(localStorage.getItem("cartItems")).forEach((item) => {
+    let val = [1000000, 0];
+    DisplayArray.forEach((item) => {
       val[0] = Math.min(val[0], +item["Price"]);
       val[1] = Math.max(val[1], +item["Price"]);
     });
     if (val[0] === 10000 || val[1] === 0) val = [0, 0];
     setMinMax([...val]);
-
-    // eslint-disable-next-lin
-  }, []);
+  }, [DisplayArray]);
 
   return (
     <div className="container pt-3 pb-3">

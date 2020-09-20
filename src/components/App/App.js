@@ -71,7 +71,7 @@ export default function App() {
           )}
         </Route>
 
-        <Route exact path="/categories/:catId/item/:itemId">
+        <Route exact path="/categories/:catName/item/:itemId">
           {localStorage.getItem("isLoggedIn") === "true" ? null : (
             <Redirect to="/login" />
           )}
