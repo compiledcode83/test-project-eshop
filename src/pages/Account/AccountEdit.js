@@ -37,9 +37,12 @@ export default function AccountOverview() {
   }
 
   function HandleSubmit(e) {
-    if (data.userName !== "" && data.userName.length < 21)
+    e.preventDefault();
+    if (data.userName !== "" && data.userName.length < 11)
       localStorage.setItem("userName", data.userName);
-
+    else if (data.userName.length > 10) {
+      alert("username is too long");
+    }
     if (data.Phone !== "") localStorage.setItem("Phone", data.Phone);
 
     if (data.Address !== "") localStorage.setItem("Address", data.Address);
@@ -51,6 +54,7 @@ export default function AccountOverview() {
       data.newPassword !== localStorage.getItem("Password")
     )
       localStorage.setItem("Password", data.newPassword);
+    window.location.reload();
   }
 
   return (

@@ -35,15 +35,18 @@ export default function Register() {
 
   function HandleSubmit(e) {
     e.preventDefault();
-    localStorage.setItem("isLoggedIn", true);
-    localStorage.setItem("userName", data.userName);
-    localStorage.setItem("Password", data.Password);
-    localStorage.setItem("Phone", data.Phone);
-    localStorage.setItem("Address", data.Address);
-    localStorage.setItem("Email", data.Email);
-    localStorage.setItem("numberOfOrders", 0);
-    localStorage.setItem("cartItems", JSON.stringify([]));
-    history.push("/login");
+    if (data.userName.length > 10) {
+      alert("username is too long, try shorter one.");
+    } else {
+      localStorage.setItem("userName", data.userName);
+      localStorage.setItem("Password", data.Password);
+      localStorage.setItem("Phone", data.Phone);
+      localStorage.setItem("Address", data.Address);
+      localStorage.setItem("Email", data.Email);
+      localStorage.setItem("numberOfOrders", 0);
+      localStorage.setItem("cartItems", JSON.stringify([]));
+      history.push("/login");
+    }
   }
 
   return (

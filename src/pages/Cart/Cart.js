@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import ItemsTable from "../../components/ItemsTable/ItemsTable";
 import { useHistory } from "react-router-dom";
+import { Modal, Fade, Backdrop, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
 
 export default function Cart() {
   const history = useHistory();
+  const classes = useStyles();
+  const [open, setOpen] = useState(false);
 
   function HandleClear() {
     localStorage.setItem("cartItems", JSON.stringify([]));
@@ -11,10 +28,21 @@ export default function Cart() {
     window.location.reload();
   }
 
+  function HandleNotAllowed() {
+    if (localStorage.getItem("cartItems") === "[]") {
+      alert("Add items to your cart first");
+      history.push("/");
+    } else {
+      setOpen(true);
+    }
+  }
+
   function HandlePayment() {
-    // add the modal...
+    setOpen(false);
+    alert("Payment operation is done successfully!");
     localStorage.setItem("cartItems", JSON.stringify([]));
     history.push("/");
+    window.location.reload();
   }
 
   return (
@@ -33,9 +61,42 @@ export default function Cart() {
         <button
           type="button"
           className="btn btn-success col-3"
-          onClick={HandlePayment}>
+          onClick={HandleNotAllowed}>
           Pay
         </button>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={() => {
+            setOpen(false);
+          }}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}>
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <h2 id="transition-modal-title">
+                Are you sure you want to buy items in your cart?
+              </h2>
+              <button
+                className="btn btn-outline-primary"
+                onClick={HandlePayment}>
+                Yes
+              </button>
+              <button
+                className="btn btn-outline-danger"
+                onClick={() => {
+                  setOpen(false);
+                }}>
+                Close
+              </button>
+            </div>
+          </Fade>
+        </Modal>
 
         <button
           type="button"
@@ -54,40 +115,3 @@ export default function Cart() {
     </div>
   );
 }
-/* modal configured
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
-import { Button } from "@material-ui/core";
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3)
-  }
-}));
-
-export default function TransitionsModal() {
-  const classes = useStyles();
-
-  return (
-    <div>
-      <Modal className={classes.modal} open={1}>
-        <div className={classes.paper}>
-          <h2>Transition modal</h2>
-          <Button variant="contained" color="primary">
-            Ok
-          </Button>
-        </div>
-      </Modal>
-    </div>
-  );
-}
-
-*/

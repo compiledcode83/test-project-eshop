@@ -35,10 +35,10 @@ export default function Login() {
     ) {
       localStorage.setItem("isLoggedIn", "true");
       alert("success!");
-      window.location.reload(true);
       history.push("/");
+      window.location.reload(true);
     } else {
-      alert("invalid email or password");
+      alert("invalid email or password or this email isn't registered yet");
     }
   }
 
