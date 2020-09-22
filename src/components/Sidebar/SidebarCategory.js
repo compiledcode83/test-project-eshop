@@ -3,7 +3,6 @@ import "./SidebarCategory.css";
 import { Divider, Paper, Button, Input, Slider } from "@material-ui/core";
 import { Star } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
-import { keys } from "@material-ui/core/styles/createBreakpoints";
 
 const useStyles = makeStyles((theme) => ({
   root: {
