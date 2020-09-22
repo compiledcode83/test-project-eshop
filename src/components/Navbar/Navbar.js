@@ -32,14 +32,12 @@ export default function Navbar() {
       <Sidebar categories={items.categories} />
 
       <Link to="/" id="logo">
-        <img alt="" src={logo} className="navbar-brand" />
+        <img alt="" src={logo} height="90px" className="navbar-brand" />
       </Link>
 
       {localStorage.getItem("isLoggedIn") === "true" ? (
         <>
-          <span className="GreetingTxt">
-            Hello, {localStorage.getItem("userName")}
-          </span>
+          <span className="GreetingTxt">Hello, {localStorage.getItem("userName")}</span>
           <div className={classes.root}>
             <ButtonGroup color="primary">
               <Button onClick={HandleLogout}>
@@ -79,7 +77,8 @@ export default function Navbar() {
                     ? JSON.parse(localStorage.getItem("cartItems")).length
                     : 0
                 }
-                color="primary">
+                color="primary"
+              >
                 <ShoppingCart />
               </Badge>
             </Button>
@@ -94,7 +93,8 @@ export default function Navbar() {
             className="btn btn-outline-primary dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
-            aria-expanded="false">
+            aria-expanded="false"
+          >
             Account Management
           </button>
           <div className="dropdown-menu">

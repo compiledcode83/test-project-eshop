@@ -2,23 +2,20 @@
   "categories": [
     "Food",
     "Electronics",
-    "Mobile&Accessoris",
     "Labtops",
     "MenWear",
     "WomenWear",
     "BabyWear",
     "KitchenUtilities"
   ],
-  "Food": [
-    {
+  "Food": [{
       "ItemId": "0",
       "Name": "Tuna",
       "Brand": "SunShine",
       "Rating": "3",
       "Price": "100.24",
       "Category": "Food",
-      "Reviews": [
-        {
+      "Reviews": [{
           "Reviewer": "Mohammed",
           "Review": "I think it was not very good for me as there many brands offers more quality"
         },
@@ -47,8 +44,7 @@
       "Rating": "4",
       "Price": "24",
       "Category": "Food",
-      "Reviews": [
-        {
+      "Reviews": [{
           "Reviewer": "Khaled",
           "Review": "not so bad. but i think it needs more review from the providers on the quality"
         },
@@ -59,16 +55,14 @@
       ]
     }
   ],
-  "Labtops": [
-    {
+  "Labtops": [{
       "ItemId": "0",
       "Name": "Inspiron 15-3593",
       "Brand": "DELL",
       "Rating": "5",
       "Price": "14965",
       "Category": "Labtops",
-      "Reviews": [
-        {
+      "Reviews": [{
           "Reviewer": "Omran",
           "Review": "Its CPU sound is the only problem. but overall i would recommend it"
         },
@@ -85,8 +79,7 @@
       "Rating": "3",
       "Price": "10233",
       "Category": "Labtops",
-      "Reviews": [
-        {
+      "Reviews": [{
           "Reviewer": "Omran",
           "Review": "Its CPU sound is the only problem. but overall i would recommend it"
         },
@@ -102,5 +95,26 @@
   "MenWear": [],
   "WomenWear": [],
   "BabyWear": [],
-  "KitchenUtilities": []
+  "KitchenUtilities": [],
+  "Offers": {
+    "Food": [{
+      "offerTxt": "30% discount on all items.",
+      "offerEndAt": "11 hours remaining"
+    }, {
+      "offerTxt": "2.5% discount on rice",
+      "offerEndAt": "3 days remaining"
+    }],
+    "Labtops": [{
+      "offerTxt": "50% discount on all items.",
+      "offerEndAt": "1 hours remaining"
+    }, {
+      "offerTxt": "22% discount on labtops from DELL",
+      "offerEndAt": "10 days remaining"
+    }],
+    "Electronics": [],
+    "MenWear": [],
+    "WomenWear": [],
+    "BabyWear": [],
+    "KitchenUtilities": []
+  }
 }

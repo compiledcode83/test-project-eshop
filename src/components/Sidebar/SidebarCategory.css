@@ -17,3 +17,9 @@
   font-size: large;
   color: black;
 }
+
+.offerTxt {
+  font-size: medium;
+  font-weight: 600;
+  color: darkgoldenrod;
+}

@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Rating } from "@material-ui/lab";
+import { useEffect } from "react";
 
 export default function CategoryItem(props) {
   const [buttonState, setButtonState] = useState(props.isAdded);
+
+  useEffect(() => {
+    setButtonState(props.isAdded);
+  }, [props]);
 
   function HandleAddToCart() {
     let items = JSON.parse(localStorage.getItem("cartItems"));
@@ -56,9 +61,7 @@ export default function CategoryItem(props) {
                 Add to cart
               </button>
             ) : (
-              <button
-                className="btn btn-primary"
-                onClick={HandleRemoveFromCart}>
+              <button className="btn btn-primary" onClick={HandleRemoveFromCart}>
                 remove from cart
               </button>
             )}

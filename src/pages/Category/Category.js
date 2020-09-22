@@ -19,24 +19,29 @@ export default function Category() {
 
   const [DisplayArray, setDisplayArray] = useState([]);
 
-  const [categoryName, setCategoryName] = useState(
-    window.location.pathname.split("/")[2]
-  );
-  const [params, setParams] = useState(
-    new URLSearchParams(window.location.search)
-  );
+  const [categoryName, setCategoryName] = useState(window.location.pathname.split("/")[2]);
+  const [params, setParams] = useState(new URLSearchParams(window.location.search));
 
-  function HandleSorting() {
-    Array.prototype.sortBy = function (p = "Price") {
-      return this.slice(0).sort(function (a, b) {
-        return +a[p] - +b[p];
-      });
-    };
+  function HandleSorting(e) {
+    SortingData(SortByState ? "Price" : "Newest");
+    setSortByState(!SortByState);
+  }
 
-    let tmpArray = Database[categoryName];
-    tmpArray = tmpArray.sortBy();
-    console.log(tmpArray);
-    setDisplayArray([...tmpArray]);
+  function SortingData(by) {
+    if (by === "Price") {
+      Array.prototype.sortBy = function (p = "Price") {
+        return this.slice(0).sort(function (a, b) {
+          return +a[p] - +b[p];
+        });
+      };
+      let tmpArray = Database[categoryName];
+      tmpArray = tmpArray.sortBy();
+      console.log(tmpArray);
+      setDisplayArray([...tmpArray]);
+    } else {
+      console.log(Database[categoryName]);
+      setDisplayArray(Database[categoryName]);
+    }
   }
 
   useEffect(() => {
@@ -47,10 +52,12 @@ export default function Category() {
     setDisplayArray(Database[categoryName]);
 
     if (params.get("sortBy") === "price") {
-      HandleSorting();
+      SortingData("Price");
       setSortByState(false);
     } else setSortByState(true);
+  }, []);
 
+  useEffect(() => {
     let val = [1000000, 0];
     DisplayArray.forEach((item) => {
       val[0] = Math.min(val[0], +item["Price"]);
@@ -64,7 +71,7 @@ export default function Category() {
     <div className="container pt-3 pb-3">
       <div className="row">
         <div className="col-3">
-          <SidebarCategory initialRange={MinMax} />
+          <SidebarCategory initialRange={MinMax} offers={Database.Offers[categoryName]} />
         </div>
         <div className="col-9">
           <Paper elevation={5}>
@@ -75,26 +82,18 @@ export default function Category() {
                   {SortByState ? (
                     <li className="SidebarListItem">
                       <Link
-                        to={`?sortBy=price&filterBy=${params.get(
-                          "filterBy"
-                        )}&value=${params.get("value")}`}
-                        onClick={() => {
-                          setSortByState(!SortByState);
-                          HandleSorting();
-                        }}>
+                        to={`?sortBy=price&filterBy=${params.get("filterBy")}&value=${params.get("value")}`}
+                        onClick={HandleSorting}
+                      >
                         sort by price
                       </Link>
                     </li>
                   ) : (
                     <li className="SidebarListItem">
                       <Link
-                        to={`?sortBy=newest&filterBy=${params.get(
-                          "filterBy"
-                        )}&value=${params.get("value")}`}
-                        onClick={() => {
-                          setSortByState(!SortByState);
-                          setDisplayArray(Database[categoryName]);
-                        }}>
+                        to={`?sortBy=newest&filterBy=${params.get("filterBy")}&value=${params.get("value")}`}
+                        onClick={HandleSorting}
+                      >
                         sort by newest
                       </Link>
                     </li>
@@ -106,8 +105,7 @@ export default function Category() {
             {DisplayArray.map((item, idx) => (
               <div key={idx}>
                 {params.get("filterBy") === "null" ||
-                (params.get("filterBy") === "Rating" &&
-                  +params.get("value") === +item.Rating) ||
+                (params.get("filterBy") === "Rating" && +params.get("value") === +item.Rating) ||
                 (params.get("filterBy") === "price" &&
                   +item.Price >= +params.get("value").split(",")[0] &&
                   +item.Price <= +params.get("value").split(",")[1]) ? (

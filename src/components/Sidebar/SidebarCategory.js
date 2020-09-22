@@ -3,6 +3,7 @@ import "./SidebarCategory.css";
 import { Divider, Paper, Button, Input, Slider } from "@material-ui/core";
 import { Star } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
+import { keys } from "@material-ui/core/styles/createBreakpoints";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,10 +46,7 @@ export default function SidebarCategory(props) {
           <h4 className="SidebarHeading">Rating</h4>
           <ul className="SidebarList">
             <li className="SidebarListItem">
-              <a
-                href={`?sortBy=${params.get(
-                  "sortBy"
-                )}&filterBy=Rating&value=${5}`}>
+              <a href={`?sortBy=${params.get("sortBy")}&filterBy=Rating&value=${5}`}>
                 <Star />
                 <Star />
                 <Star />
@@ -57,10 +55,7 @@ export default function SidebarCategory(props) {
               </a>
             </li>
             <li className="SidebarListItem">
-              <a
-                href={`?sortBy=${params.get(
-                  "sortBy"
-                )}&filterBy=Rating&value=${4}`}>
+              <a href={`?sortBy=${params.get("sortBy")}&filterBy=Rating&value=${4}`}>
                 <Star />
                 <Star />
                 <Star />
@@ -68,29 +63,20 @@ export default function SidebarCategory(props) {
               </a>
             </li>
             <li className="SidebarListItem">
-              <a
-                href={`?sortBy=${params.get(
-                  "sortBy"
-                )}&filterBy=Rating&value=${3}`}>
+              <a href={`?sortBy=${params.get("sortBy")}&filterBy=Rating&value=${3}`}>
                 <Star />
                 <Star />
                 <Star />
               </a>
             </li>
             <li className="SidebarListItem">
-              <a
-                href={`?sortBy=${params.get(
-                  "sortBy"
-                )}&filterBy=Rating&value=${2}`}>
+              <a href={`?sortBy=${params.get("sortBy")}&filterBy=Rating&value=${2}`}>
                 <Star />
                 <Star />
               </a>
             </li>
             <li className="SidebarListItem">
-              <a
-                href={`?sortBy=${params.get(
-                  "sortBy"
-                )}&filterBy=Rating&value=${1}`}>
+              <a href={`?sortBy=${params.get("sortBy")}&filterBy=Rating&value=${1}`}>
                 <Star />
               </a>
             </li>
@@ -102,10 +88,7 @@ export default function SidebarCategory(props) {
         <div>
           <div className="d-flex justify-content-between">
             <h4 className="SidebarHeading">Price</h4>
-            <a
-              href={`?sortBy=${params.get("sortBy")}&filterBy=price&value=${
-                priceRange[0]
-              },${priceRange[1]}`}>
+            <a href={`?sortBy=${params.get("sortBy")}&filterBy=price&value=${priceRange[0]},${priceRange[1]}`}>
               <Button variant="contained" color="secondary">
                 Filter
               </Button>
@@ -146,8 +129,13 @@ export default function SidebarCategory(props) {
       <br />
       <Paper elevation={5} className={classes.root}>
         <h3>Current Offers</h3>
-        <Divider className={classes.divider} />
-        <h3>Current Offers</h3>
+        {props.offers.map((offer, idx) => (
+          <div className="offerTxt" key={idx}>
+            <span>{offer.offerTxt}</span>
+            <span>Time remaining: {offer.offerEndAt}</span>
+            <Divider className={classes.divider} />
+          </div>
+        ))}
       </Paper>
     </>
   );
