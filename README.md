@@ -36,4 +36,4 @@
 
       - npm start
 
-### 4. You can try it using the deployed line `https://resonant.netlify.app/`
+### 4. You can try it using the [deployed link](https://resonant.netlify.app/)
