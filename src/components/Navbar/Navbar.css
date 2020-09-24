@@ -13,6 +13,7 @@ body {
   align-items: center;
   width: 100%;
   min-width: 1260px;
+  justify-content: space-around;
 }
 
 .NavbarLink {

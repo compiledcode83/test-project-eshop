@@ -7,12 +7,18 @@ import { Drawer, Button, List, ListItem } from "@material-ui/core";
 const useStyles = makeStyles({
   list: {
     width: 250,
+    height: "100%",
   },
   fullList: {
     width: "auto",
   },
   togglerButton: {
     marginTop: "10px",
+  },
+  ULlist: {
+    width: "100%",
+    height: "100%",
+    lineHeight: "3rem",
   },
 });
 
@@ -23,10 +29,7 @@ export default function Sidebar(props) {
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
+    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
       return;
     }
 
@@ -39,12 +42,11 @@ export default function Sidebar(props) {
         [classes.fullList]: anchor === "top",
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}>
-      <List>
+      onClick={toggleDrawer(anchor, false)}
+    >
+      <List className={classes.ULlist}>
         {props.categories.map((text, index) => (
-          <a
-            href={`/categories/${text}?sortBy=newest&filterBy=null&value=null`}
-            key={index}>
+          <a href={`/categories/${text}?sortBy=newest&filterBy=null&value=null`} key={index}>
             <ListItem button>{text}</ListItem>
           </a>
         ))}
@@ -56,16 +58,10 @@ export default function Sidebar(props) {
     <div>
       {
         <React.Fragment key={"left"}>
-          <Button
-            variant="contained"
-            className={classes.togglerButton}
-            onClick={toggleDrawer("left", true)}>
+          <Button variant="contained" className={classes.togglerButton} onClick={toggleDrawer("left", true)}>
             <DehazeIcon />
           </Button>
-          <Drawer
-            anchor={"left"}
-            open={state["left"]}
-            onClose={toggleDrawer("left", false)}>
+          <Drawer anchor={"left"} open={state["left"]} onClose={toggleDrawer("left", false)}>
             {list("left")}
           </Drawer>
         </React.Fragment>

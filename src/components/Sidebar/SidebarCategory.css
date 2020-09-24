@@ -21,5 +21,9 @@
 .offerTxt {
   font-size: medium;
   font-weight: 600;
-  color: darkgoldenrod;
+  color: rgb(133, 31, 133);
+}
+
+.offerTime {
+  color: rgb(151, 21, 21);
 }

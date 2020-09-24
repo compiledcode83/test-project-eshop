@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./SidebarCategory.css";
-import { Divider, Paper, Button, Input, Slider } from "@material-ui/core";
+import { Divider, Paper, Button, TextField } from "@material-ui/core";
 import { Star } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -14,7 +14,15 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     margin: "0 15px",
-    maxWidth: "40%",
+    maxWidth: "50%",
+  },
+  filterButtons: {
+    backgroundColor: "#44216b",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#44216b",
+      color: "white",
+    },
   },
 }));
 
@@ -33,7 +41,7 @@ export default function SidebarCategory(props) {
         <div className="d-flex justify-content-between">
           <h3>Filter by</h3>
           <a href={`?sortBy=${params.get("sortBy")}&filterBy=null&value=null`}>
-            <Button variant="contained" color="secondary">
+            <Button variant="contained" className={classes.filterButtons}>
               Clear
             </Button>
           </a>
@@ -88,50 +96,47 @@ export default function SidebarCategory(props) {
           <div className="d-flex justify-content-between">
             <h4 className="SidebarHeading">Price</h4>
             <a href={`?sortBy=${params.get("sortBy")}&filterBy=price&value=${priceRange[0]},${priceRange[1]}`}>
-              <Button variant="contained" color="secondary">
+              <Button variant="contained" className={classes.filterButtons}>
                 Filter
               </Button>
             </a>
           </div>
 
           <div>
-            <Slider
-              value={priceRange}
-              onChange={(event, newValue) => {
-                setPriceRange(newValue);
-              }}
-              min={priceRange[0]}
-              max={priceRange[1]}
-            />
-            <div className="d-flex justify-content-center">
-              <Input
+            <div className="d-flex justify-content-center mt-2">
+              <TextField
+                type="number"
+                label="min price"
                 className={classes.input}
                 value={priceRange[0]}
-                margin="dense"
-                inputProps={{
-                  readOnly: true,
+                onChange={(e) => {
+                  setPriceRange([e.target.value, priceRange[1]]);
                 }}
               />
 
-              <Input
+              <TextField
+                type="number"
+                label="max price"
                 className={classes.input}
                 value={priceRange[1]}
-                margin="dense"
-                inputProps={{
-                  readOnly: true,
+                onChange={(e) => {
+                  setPriceRange([priceRange[0], e.target.value]);
                 }}
               />
             </div>
           </div>
         </div>
       </Paper>
+
       <br />
+
       <Paper elevation={5} className={classes.root}>
         <h3>Current Offers</h3>
         {props.offers.map((offer, idx) => (
           <div className="offerTxt" key={idx}>
             <span>{offer.offerTxt}</span>
-            <span>Time remaining: {offer.offerEndAt}</span>
+            <br />
+            <span className="offerTime">Time remaining: {offer.offerEndAt}</span>
             <Divider className={classes.divider} />
           </div>
         ))}

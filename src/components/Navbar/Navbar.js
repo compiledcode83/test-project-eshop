@@ -13,9 +13,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    "& > *": {
-      marginLeft: theme.spacing(3),
-    },
   },
 }));
 
@@ -32,12 +29,81 @@ export default function Navbar() {
       <Sidebar categories={items.categories} />
 
       <Link to="/" id="logo">
-        <img alt="" src={logo} height="90px" className="navbar-brand" />
+        <img alt="" src={logo} height="80px" className="navbar-brand" />
       </Link>
 
       {localStorage.getItem("isLoggedIn") === "true" ? (
+        <span className="GreetingTxt">Hello, {localStorage.getItem("userName")}</span>
+      ) : null}
+
+      {localStorage.getItem("isLoggedIn") === "true" ? (
+        <div className={classes.root}>
+          <div className="btn-group">
+            <button
+              type="button"
+              className="btn btn-outline-primary dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Account
+            </button>
+            <div className="dropdown-menu">
+              <Link className="dropdown-item" to="/account/overview">
+                Overview
+              </Link>
+              <Link className="dropdown-item" to="/account/edit">
+                Edit Info
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      <div className={classes.root}>
+        <Link to="/help" className="nav-link">
+          <ButtonGroup color="primary">
+            <Button>
+              help
+              <Help />
+            </Button>
+          </ButtonGroup>
+        </Link>
+      </div>
+
+      <div className={classes.root}>
+        <Link to="/about" className="nav-link">
+          <ButtonGroup color="primary">
+            <Button>
+              About
+              <Info />
+            </Button>
+          </ButtonGroup>
+        </Link>
+      </div>
+
+      <div className={classes.root}>
+        <Link to="/cart" className="nav-link">
+          <ButtonGroup color="primary">
+            <Button>
+              Cart
+              <Badge
+                badgeContent={
+                  localStorage.getItem("isLoggedIn") === "true"
+                    ? JSON.parse(localStorage.getItem("cartItems")).length
+                    : 0
+                }
+                color="primary"
+              >
+                <ShoppingCart />
+              </Badge>
+            </Button>
+          </ButtonGroup>
+        </Link>
+      </div>
+
+      {localStorage.getItem("isLoggedIn") === "true" ? (
         <>
-          <span className="GreetingTxt">Hello, {localStorage.getItem("userName")}</span>
           <div className={classes.root}>
             <ButtonGroup color="primary">
               <Button onClick={HandleLogout}>
@@ -65,70 +131,6 @@ export default function Navbar() {
           </div>
         </>
       )}
-
-      <div className={classes.root}>
-        <Link to="/cart" className="nav-link">
-          <ButtonGroup color="primary">
-            <Button>
-              Cart
-              <Badge
-                badgeContent={
-                  localStorage.getItem("isLoggedIn") === "true"
-                    ? JSON.parse(localStorage.getItem("cartItems")).length
-                    : 0
-                }
-                color="primary"
-              >
-                <ShoppingCart />
-              </Badge>
-            </Button>
-          </ButtonGroup>
-        </Link>
-      </div>
-
-      <div className={classes.root}>
-        <div className="btn-group">
-          <button
-            type="button"
-            className="btn btn-outline-primary dropdown-toggle"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Account Management
-          </button>
-          <div className="dropdown-menu">
-            <Link className="dropdown-item" to="/account/overview">
-              Overview
-            </Link>
-            <Link className="dropdown-item" to="/account/edit">
-              Edit Info
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      <div className={classes.root}>
-        <Link to="/help" className="nav-link">
-          <ButtonGroup color="primary">
-            <Button>
-              help
-              <Help />
-            </Button>
-          </ButtonGroup>
-        </Link>
-      </div>
-
-      <div className={classes.root}>
-        <Link to="/about" className="nav-link">
-          <ButtonGroup color="primary">
-            <Button>
-              About
-              <Info />
-            </Button>
-          </ButtonGroup>
-        </Link>
-      </div>
     </header>
   );
 }

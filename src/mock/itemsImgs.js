@@ -5,10 +5,11 @@ import LabtopsHP from "../assets/images/Items/Labtops/HP/main.jpg";
 // food imgs
 import FoodTuna from "../assets/images/Items/Food/tuna/main.jpg";
 import FoodRice from "../assets/images/Items/Food/rice/main.jpg";
+import FoodYelloRice from "../assets/images/Items/Food/rice/main.jpg";
 
 let imgs = {
   Labtops: { "Inspiron 15-3593": LabtopsDELL, "15-da1885ne": LabtopsHP },
-  Food: { Tuna: FoodTuna, Rice: FoodRice },
+  Food: { Tuna: FoodTuna, Rice: FoodRice, YelloRice: FoodYelloRice },
   Electronics: {},
   Mobile: {},
   MenWear: {},

@@ -25,6 +25,7 @@ const useStyles = makeStyles({
     display: "flex",
     padding: "15px",
     borderRadius: "10px",
+    justifyContent: "space-around",
   },
 });
 
@@ -49,8 +50,7 @@ export default function MultipleCards(props) {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Link
-                to={`/categories/${props.content[idx].Category}/item/${props.content[idx].ItemId}`}>
+              <Link to={`/categories/${props.content[idx].Category}/item/${props.content[idx].ItemId}`}>
                 Learn More
               </Link>
             </CardActions>
